@@ -138,20 +138,24 @@
   {:else if error}
     <p>Error loading recipes.</p>
   {:else}
-    <recipe-feed
-      recipes={feedRecipes}
-      columns={4}
-      gap="1rem"
-      onrecipeSelected={handleRecipeSelected}
-      onfavoriteToggled={handleFavoriteToggled}
-    ></recipe-feed>
+    <div class="feed-wrap">
+      <recipe-feed
+        recipes={feedRecipes}
+        columns={3}
+        gap="1rem"
+        onrecipeSelected={handleRecipeSelected}
+        onfavoriteToggled={handleFavoriteToggled}
+      ></recipe-feed>
+    </div>
   {/if}
 </section>
 
 <style>
   .home-page {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1.25rem;
+    width: 100%;
   }
 
   .controls {
@@ -195,8 +199,14 @@
     outline-offset: 3px;
   }
 
-  .home-page :global(recipe-feed) {
+  .feed-wrap {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .feed-wrap :global(recipe-feed) {
     display: block;
     width: 100%;
+    min-width: 0;
   }
 </style>

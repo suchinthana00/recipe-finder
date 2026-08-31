@@ -36,19 +36,27 @@
   {#if recipes.length === 0}
     <p>No recipes found.</p>
   {:else}
-    <recipe-feed
-      recipes={recipes}
-      columns={4}
-      gap="1rem"
-      onrecipeSelected={handleRecipeSelected}
-      onfavoriteToggled={handleFavoriteToggled}
-    ></recipe-feed>
+    <div class="feed-wrap">
+      <recipe-feed
+        recipes={recipes}
+        columns={3}
+        gap="1rem"
+        onrecipeSelected={handleRecipeSelected}
+        onfavoriteToggled={handleFavoriteToggled}
+      ></recipe-feed>
+    </div>
   {/if}
 </section>
 
 <style>
-  section :global(recipe-feed) {
+  .feed-wrap {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .feed-wrap :global(recipe-feed) {
     display: block;
     width: 100%;
+    min-width: 0;
   }
 </style>
