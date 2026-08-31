@@ -4,6 +4,9 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
+		"copy:stencil-assets": "node scripts/copy-stencil-assets.mjs",
+		"predev": "npm run copy:stencil-assets",
+		"prebuild": "npm run copy:stencil-assets",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",

@@ -1,6 +1,7 @@
 <svelte:options runes={true} />
 
 <script lang="ts">
+  import { base } from '$app/paths';
   import { onMount } from 'svelte';
 
   const { children } = $props();
@@ -8,7 +9,9 @@
   onMount(async () => {
     try {
       const { defineCustomElements } = await import('stencilrecipe/loader');
-      defineCustomElements();
+      const resourcesUrl = `${base || ''}/stencilrecipe/`;
+
+      await defineCustomElements(window, { resourcesUrl });
     } catch {
       // Ignore custom element loader failures during SSR/hydration.
     }
