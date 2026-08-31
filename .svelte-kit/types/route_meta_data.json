@@ -1,0 +1,8 @@
+{
+	"/": [],
+	"/favorites": [],
+	"/meal-plan": [],
+	"/recipes/[id]": [
+		"src/routes/recipes/[id]/+page.ts"
+	]
+}
